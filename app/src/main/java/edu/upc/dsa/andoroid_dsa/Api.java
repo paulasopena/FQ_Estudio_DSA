@@ -6,6 +6,7 @@ import java.util.List;
 
 import edu.upc.dsa.andoroid_dsa.models.Credentials;
 import edu.upc.dsa.andoroid_dsa.models.Gadget;
+import edu.upc.dsa.andoroid_dsa.models.PasswordChangeRequirements;
 import edu.upc.dsa.andoroid_dsa.models.User;
 import edu.upc.dsa.andoroid_dsa.models.UserId;
 import edu.upc.dsa.andoroid_dsa.models.UserInformation;
@@ -35,5 +36,7 @@ public interface Api {
     Call<List<Gadget>> purchasedGadgets(@Path("idUser") String idUser);
     @GET("shop/gadget/{idGadget}")
     Call<Gadget> getGadget(@Path("idUser") String idGadget);
+    @PUT("shop/user/update")
+    Call<Void> updateUserPassword(@Body PasswordChangeRequirements passwordChangeRequirements);
 
 }
