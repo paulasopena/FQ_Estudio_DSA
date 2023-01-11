@@ -7,11 +7,13 @@ import java.util.List;
 import edu.upc.dsa.andoroid_dsa.models.Credentials;
 import edu.upc.dsa.andoroid_dsa.models.Gadget;
 import edu.upc.dsa.andoroid_dsa.models.PasswordChangeRequirements;
+import edu.upc.dsa.andoroid_dsa.models.Purchase;
 import edu.upc.dsa.andoroid_dsa.models.User;
 import edu.upc.dsa.andoroid_dsa.models.UserId;
 import edu.upc.dsa.andoroid_dsa.models.UserInformation;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
@@ -38,5 +40,10 @@ public interface Api {
     Call<Gadget> getGadget(@Path("idUser") String idGadget);
     @PUT("shop/user/update")
     Call<Void> updateUserPassword(@Body PasswordChangeRequirements passwordChangeRequirements);
+    @GET("shop/user/allOrdered")
+    Call<List<User>> rankingOfUsers();
+    @PUT("shop/user/deletePurchase")
+    Call<Void> deleteGadgetFromPurchase(@Body Purchase purchase);
+
 
 }

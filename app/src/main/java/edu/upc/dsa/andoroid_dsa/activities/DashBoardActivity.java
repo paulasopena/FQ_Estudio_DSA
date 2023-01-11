@@ -27,7 +27,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class DashBoardActivity extends AppCompatActivity implements View.OnClickListener {
-    public CardView yourProfile, gadgetShop, logOut;
+    public CardView yourProfile, gadgetShop, rankingCard;
     public String userId;
     public String username;
     Api APIservice;
@@ -59,6 +59,10 @@ public class DashBoardActivity extends AppCompatActivity implements View.OnClick
                 break;
             case R.id.returnBtn:
                 i=new Intent(this, PrincipalActivity.class);
+                startActivity(i);
+                break;
+            case R.id.rankingCard:
+                i=new Intent(this, RankingActivity.class);
                 startActivity(i);
                 break;
         }
@@ -99,8 +103,10 @@ public class DashBoardActivity extends AppCompatActivity implements View.OnClick
     public void getCardViewsReady(){
         yourProfile=(CardView) findViewById(R.id.profiles);
         gadgetShop=(CardView) findViewById(R.id.gadgetCard);
+        rankingCard=(CardView) findViewById(R.id.rankingCard);
         yourProfile.setOnClickListener(this);
         gadgetShop.setOnClickListener(this);
+        rankingCard.setOnClickListener(this);
     }
     public void saveVariables(UserInformation userInformation) {
         SharedPreferences sharedPreferences= getSharedPreferences("userInformation", Context.MODE_PRIVATE);
